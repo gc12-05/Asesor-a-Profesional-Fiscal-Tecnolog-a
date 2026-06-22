@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Asesoría fiscal y tecnológica profesional para personas físicas, emprendedores y pequeños negocios en México."/>
+<title>Asesoría Profesional|Fiscal & Tecnología</title>
+<link rel="icon" type="image/png" href="logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;color:#1a2332;line-height:1.65;overflow-x:hidden;background:#fff}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#0b1628}
+::-webkit-scrollbar-thumb{background:#00d4c0;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.particles{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  z-index:1;
+}
+
+.particles::before,
+.particles::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background-image:
+    radial-gradient(circle, rgba(0,212,192,.35) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:floatParticles 30s linear infinite;
+}
+
+.particles::after{
+  animation-direction:reverse;
+  opacity:.4;
+}
+
+@keyframes floatParticles{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(-200px,-200px);
+  }
+}
+.hero-tech{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,212,192,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,192,.04) 1px, transparent 1px);
+
+  background-size:60px 60px;
+  animation:gridMove 15s linear infinite;
+}
+
+@keyframes gridMove{
+  from{
+    background-position:0 0;
+  }
+  to{
+    background-position:0 60px;
+  }
+}
+.stars{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.8) 1px, transparent 2px),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,.6) 1px, transparent 2px),
+    radial-gradient(circle at 60% 80%, rgba(255,255,255,.7) 1px, transparent 2px);
+  animation:starsMove 20s linear infinite;
+}
+
+@keyframes starsMove{
+  from{transform:translateY(0);}
+  to{transform:translateY(50px);}
+}
+.hero-orb1{
+  width:700px;
+  height:700px;
+  background:radial-gradient(
+    circle,
+    rgba(0,212,192,.15) 0%,
+    rgba(0,212,192,.05) 40%,
+    transparent 70%
+  );
+  animation:orbMove1 10s ease-in-out infinite alternate;
+}
+
+.hero-orb2{
+  width:500px;
+  height:500px;
+  background:radial-gradient(
+    circle,
+    rgba(70,120,255,.12) 0%,
+    transparent 70%
+  );
+  animation:orbMove2 12s ease-in-out infinite alternate;
+}
+
+@keyframes orbMove1{
+  from{transform:translate(0,0);}
+  to{transform:translate(-80px,60px);}
+}
+
+@keyframes orbMove2{
+  from{transform:translate(0,0);}
+  to{transform:translate(60px,-50px);}
+}
+
+:root{
+  --dark:     #0b1628;
+  --dark2:    #0f1e35;
+  --navy:     #152843;
+  --teal:     #00d4c0;
+  --teal-d:   #00b8a6;
+  --white:    #ffffff;
+  --light:    #f0f7ff;
+  --text:     #1a2332;
+  --muted:    #5a7a9a;
+  --border-l: rgba(0,0,0,0.08);
+  --border-d: rgba(0,212,192,0.18);
+  --r:        16px;
+  --shadow-l: 0 4px 24px rgba(0,0,0,0.09);
+  --shadow-d: 0 8px 40px rgba(0,0,0,0.45);
+}
+
+h1{font-size:clamp(2.3rem,5vw,4rem);font-weight:900;line-height:1.07;letter-spacing:-0.025em}
+h2{font-size:clamp(1.9rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em}
+h3{font-size:clamp(.95rem,1.4vw,1.1rem);font-weight:700;line-height:1.3}
+p{font-size:clamp(.88rem,1vw,.97rem);line-height:1.7}
+.teal{color:var(--teal)}
+.white{color:#fff}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+.sec-dark{background:var(--dark);color:#c8d8ea}
+.sec-light{background:#fff;color:var(--text)}
+.sec-light-alt{background:var(--light);color:var(--text)}
+.sec-pad{padding:clamp(5rem,8vw,7.5rem) 0}
+.pill{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1rem;
+}
+.pill svg{width:7px;height:7px;fill:var(--teal)}
+#nav{
+  position:fixed;top:1.1rem;left:50%;
+  transform:translateX(-50%);
+  z-index:1000;
+  width:min(92%,1140px);
+  border-radius:60px;
+  background:rgba(11,22,40,.55);
+  border:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 10px 36px rgba(0,0,0,.28);
+  padding:.65rem 1.7rem;
+  transition:padding .3s,box-shadow .3s,background .3s,top .3s;
+}
+#nav.scrolled{
+  background:rgba(11,22,40,.55);
+  box-shadow:0 10px 36px rgba(0,0,0,.28);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-icon{
+  width:70px;
+  height:70px;
+  border-radius:0;
+  background:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  position:relative;
+  overflow:visible;
+
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.9rem;color:#0b1628;flex-shrink:0;
+  position:relative;overflow:hidden;
+}
+.nav-icon img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.nav-icon .nav-logo-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.nav-icon .nav-icon-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center}
+.nav-name{font-size:.9rem;font-weight:700;color:#fff}
+.nav-links{list-style:none;display:flex;align-items:center;gap:1.6rem}
+.nav-links a{
+  text-decoration:none;color:rgba(255,255,255,.72);
+  font-size:.84rem;font-weight:500;transition:color .25s;
+}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--teal)!important;color:#0b1628!important;
+  padding:.5rem 1.25rem;border-radius:50px;font-weight:700!important;
+  transition:background .25s,transform .2s!important;
+}
+.nav-cta:hover{background:#00f0d8!important;transform:translateY(-2px)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.3rem}
+.ham span{display:block;width:23px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:110px 0 72px;
+  background:linear-gradient(160deg,#08111e 0%,#0e1d30 55%,#0b1628 100%);
+  position:relative;overflow:hidden;
+}
+.hero-orb{
+  position:absolute;pointer-events:none;
+  border-radius:50%;filter:blur(80px);
+}
+.hero-orb1{
+  width:55vw;height:55vw;
+  top:-15%;right:-10%;
+  background:radial-gradient(circle,rgba(0,212,192,.09) 0%,transparent 70%);
+}
+.hero-orb2{
+  width:40vw;height:40vw;
+  bottom:-10%;left:-5%;
+  background:radial-gradient(circle,rgba(20,60,120,.15) 0%,transparent 70%);
+}
+.hero-wrap{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(0,212,192,.08);border:1px solid rgba(0,212,192,.2);
+  padding:.32rem .9rem;border-radius:50px;
+  font-size:.72rem;font-weight:600;color:var(--teal);
+  letter-spacing:.1em;margin-bottom:1.5rem;
+}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{color:#fff;margin-bottom:1.2rem}
+.hero-sub{color:rgba(200,216,234,.75);max-width:480px;margin-bottom:2.5rem;font-size:clamp(.9rem,1.2vw,1.02rem)}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:3.2rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;
+  padding:.8rem 1.65rem;border-radius:50px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s,border-color .25s,color .25s;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-filled{
+  background:var(--teal);color:#0b1628;
+  box-shadow:0 0 24px rgba(0,212,192,.28);
+}
+.btn-filled:hover{background:#00f0d8;box-shadow:0 6px 32px rgba(0,212,192,.45)}
+.btn-ghost{
+  background:transparent;color:#fff;
+  border:1.5px solid rgba(255,255,255,.2);
+}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-dark{
+  background:var(--dark);color:#fff;
+  box-shadow:var(--shadow-l);
+}
+.btn-dark:hover{background:#152843;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.btn-dark-teal{
+  background:var(--dark);color:#fff;
+  box-shadow:var(--shadow-l);
+}
+.btn-dark-teal:hover{background:#152843}
+
+.hero-stats{
+  display:flex;gap:2.5rem;flex-wrap:wrap;
+  padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);
+}
+.hst-val{font-size:clamp(1.5rem,2.5vw,2rem);font-weight:900;color:#fff;line-height:1;margin-bottom:.25rem}
+.hst-lbl{font-size:.68rem;font-weight:500;color:rgba(200,216,234,.55);text-transform:uppercase;letter-spacing:.08em}
+
+#about{background:#fff}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1.15fr;
+  gap:4.5rem;align-items:center;
+}
+.about-img-wrap{
+  position:relative;border-radius:20px;overflow:hidden;
+  aspect-ratio:3/4;
+  background:linear-gradient(160deg,#e8f4fd,#d0e8f8);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+.about-img-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.5s cubic-bezier(.25,.46,.45,.94);
+}
+.about-badge-btn{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  white-space:nowrap;
+  background:var(--teal);color:#0b1628;
+  padding:.65rem 1.35rem;border-radius:50px;
+  font-size:.82rem;font-weight:700;
+  box-shadow:0 6px 24px rgba(0,212,192,.4);
+  display:flex;flex-direction:column;align-items:center;gap:.15rem;text-align:center;
+}
+.about-badge-btn span:first-child{font-size:.9rem;font-weight:800}
+.about-badge-btn span:last-child{font-size:.68rem;font-weight:500;opacity:.85}
+.about-text-col .pill{margin-bottom:.75rem}
+.about-h2{color:var(--text);margin-bottom:1rem}
+.about-p{color:var(--muted);margin-bottom:.85rem}
+.about-checks{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin:1.5rem 0 2rem}
+.about-checks li{
+  display:flex;align-items:center;gap:.8rem;
+  font-size:.9rem;color:var(--muted);
+}
+.chk-circle{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--teal);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.chk-circle svg{width:11px;height:11px;stroke:#0b1628;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+#fiscal{background:#fff}
+.sec-heading{margin-bottom:2.75rem}
+.sec-heading .pill{margin-bottom:.6rem}
+.sec-heading h2{color:var(--text);margin-bottom:.6rem}
+.sec-heading p{color:var(--muted);max-width:500px}
+
+.hero-img-block{
+  border-radius:20px;overflow:hidden;
+  margin-bottom:2.75rem;
+  position:relative;
+  box-shadow:0 12px 48px rgba(0,0,0,0.14);
+}
+.hero-img-block img{
+  width:100%;aspect-ratio:16/6;object-fit:cover;
+  display:block;
+  transition:transform 1.5s cubic-bezier(.25,.46,.45,.94);
+}
+.fiscal-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:.9rem;
+}
+.fc{
+  background:#fff;
+  border:1.5px solid #e2eaf4;
+  border-radius:16px;padding:1.7rem 1.5rem;
+  position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.fc::before{
+  content:'';position:absolute;top:-32px;right:-32px;
+  width:88px;height:88px;border-radius:50%;
+  background:rgba(0,212,192,.10);
+  transition:transform .4s,background .4s;
+}
+.fc:hover{transform:translateY(-5px);box-shadow:var(--shadow-l);border-color:rgba(0,212,192,.4)}
+.fc:hover::before{background:rgba(0,212,192,.18);transform:scale(1.18)}
+.fc-code{position:relative;z-index:1;display:block;font-size:.68rem;font-weight:700;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+.fc h3{position:relative;z-index:1;font-size:.88rem;color:var(--text);margin-bottom:.32rem;font-weight:700}
+.fc p{position:relative;z-index:1;font-size:.76rem;color:var(--muted);line-height:1.55}
+
+#tech{background:var(--dark2)}
+#tech .sec-heading h2{color:#fff}
+#tech .sec-heading p{color:rgba(200,216,234,.65)}
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:1rem;
+}
+.tc{
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:1.7rem 1.5rem;
+  position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.tc::before{
+  content:'';position:absolute;top:-32px;right:-32px;
+  width:88px;height:88px;border-radius:50%;
+  background:rgba(0,212,192,.14);
+  transition:transform .4s,background .4s;
+}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--shadow-d);border-color:rgba(0,212,192,.3)}
+.tc:hover::before{background:rgba(0,212,192,.24);transform:scale(1.18)}
+.tc-code{position:relative;z-index:1;display:block;font-size:.68rem;font-weight:700;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+.tc h3{position:relative;z-index:1;font-size:.9rem;color:#fff;margin-bottom:.32rem;font-weight:700}
+.tc p{position:relative;z-index:1;font-size:.78rem;color:rgba(200,216,234,.62);line-height:1.55}
+
+#why{background:#fff}
+.why-center{text-align:center;max-width:580px;margin:0 auto 3.5rem}
+.why-center h2{color:var(--text)}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.25rem;
+}
+.wc{
+  background:#fff;border:1.5px solid #e5eef7;
+  border-radius:14px;padding:1.85rem 1.7rem;
+  position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+.wc::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--teal),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.wc:hover{transform:translateY(-5px);box-shadow:var(--shadow-l)}
+.wc:hover::before{transform:scaleX(1)}
+.wc-num{
+  font-size:3.5rem;font-weight:900;color:rgba(0,212,192,.08);
+  position:absolute;top:.6rem;right:1.1rem;line-height:1;
+}
+.wc-ico{font-size:1.7rem;margin-bottom:.8rem}
+.wc h3{color:var(--text);margin-bottom:.4rem;font-size:1rem}
+.wc p{font-size:.84rem;color:var(--muted);line-height:1.65}
+
+#mvv{background:#f4f8fc}
+.mvv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.mv{
+  background:#fff;
+  border:1.5px solid #e2eaf4;
+  border-radius:16px;padding:2rem 1.75rem;
+  transition:transform .3s,box-shadow .3s;
+  position:relative;
+}
+.mv:hover{transform:translateY(-4px);box-shadow:var(--shadow-l)}
+.mv-num{font-size:.7rem;font-weight:700;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.85rem;display:block}
+.mv-ttl{display:none}
+.mv p{font-size:.87rem;color:var(--muted);line-height:1.75}
+
+#testi{
+  background:var(--dark);
+  padding:clamp(5rem,8vw,7.5rem) 0;
+  text-align:center;
+}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);margin:0 auto .85rem;animation:blink 2.5s infinite}
+.testi-title{color:#fff;margin-bottom:0}
+.testi-title .teal{color:var(--teal)}
+.testi-body{max-width:780px;margin:3rem auto 0}
+.tslide{display:none;animation:tFade .4s ease}
+.tslide.on{display:block}
+@keyframes tFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.tquote{
+  font-size:clamp(1rem,1.5vw,1.18rem);font-weight:400;
+  color:#fff;line-height:1.75;margin-bottom:2rem;
+  font-style:normal;text-align:left;
+}
+.tquote::before{content:'"';color:var(--teal)}
+.tquote::after{content:'"';color:var(--teal)}
+.tauthor{display:flex;align-items:center;gap:.75rem;justify-content:center}
+.tavatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),#007d72);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#0b1628;font-size:.9rem;flex-shrink:0;
+}
+.tname{font-weight:700;color:#fff;font-size:.9rem}
+.trole{font-size:.76rem;color:rgba(200,216,234,.6)}
+.tcontrols{
+  display:flex;align-items:center;justify-content:center;
+  gap:.8rem;margin-top:2rem;
+}
+.tarr{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;cursor:pointer;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,border-color .25s,transform .2s;
+}
+.tarr:hover{background:rgba(0,212,192,.18);border-color:var(--teal);transform:scale(1.1)}
+.tdots{display:flex;gap:.45rem;align-items:center}
+.td{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.18);cursor:pointer;
+  border:none;padding:0;transition:background .25s,transform .25s;
+}
+.td.on{background:var(--teal);transform:scale(1.25)}
+
+#contact{background:#fff}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1.45fr;
+  gap:4.5rem;align-items:start;
+}
+.ct-left h2{color:var(--text);margin-bottom:.9rem}
+.ct-left>p{color:var(--muted);font-size:.92rem;margin-bottom:2rem;line-height:1.75}
+.ct-items{display:flex;flex-direction:column;gap:.8rem}
+.ct-item{
+  display:flex;align-items:center;gap:.85rem;
+  text-decoration:none;color:var(--muted);
+  font-size:.88rem;transition:color .25s;
+}
+.ct-item:hover{color:var(--text)}
+.ct-ico{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .25s,box-shadow .25s;
+}
+.ico-teal{background:var(--teal);color:#0b1628;box-shadow:0 4px 16px rgba(0,212,192,.35)}
+.ico-navy{background:var(--navy);color:#fff;box-shadow:0 4px 16px rgba(11,22,40,.3)}
+.ct-item:hover .ct-ico{transform:translateY(-3px)}
+.cform{
+  background:#fff;
+  border:1.5px solid #e5eef7;
+  border-radius:20px;padding:2.5rem;
+  box-shadow:var(--shadow-l);
+}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.9rem}
+.fg label{font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.fg input,.fg select,.fg textarea{
+  background:#fafcff;
+  border:1.5px solid #e0ecf8;
+  border-radius:10px;padding:.78rem .95rem;
+  color:var(--text);font-family:'Inter',sans-serif;font-size:.9rem;
+  outline:none;width:100%;
+  transition:border-color .3s,background .3s;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(90,122,154,.5)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--teal);background:#fff;
+}
+.fg select{
+  appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300d4c0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .9rem center;
+  padding-right:2.4rem;background-color:#fafcff;
+}
+.fg select option{background:#fff;color:var(--text)}
+.fg textarea{resize:vertical;min-height:110px}
+.btn-submit{width:100%;justify-content:center;margin-top:.35rem;padding:.88rem;font-size:.93rem}
+
+footer{
+  background:#070e1c;
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:3rem 0 1.75rem;
+}
+.ft-grid{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr;
+  gap:3rem;margin-bottom:2.5rem;
+}
+.ft-brand p{font-size:.83rem;color:rgba(200,216,234,.5);margin-top:.7rem;max-width:280px;line-height:1.7}
+.ft-col h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#fff;margin-bottom:1rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.ft-col a{font-size:.83rem;color:rgba(200,216,234,.55);text-decoration:none;transition:color .25s}
+.ft-col a:hover{color:var(--teal)}
+.ft-soc{display:flex;gap:.6rem;margin-top:.5rem}
+.soc{
+  width:36px;height:36px;border-radius:9px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:.95rem;color:rgba(200,216,234,.55);
+  transition:background .25s,border-color .25s,color .25s,transform .25s;
+}
+.soc:hover{background:rgba(0,212,192,.15);border-color:var(--teal);color:var(--teal);transform:translateY(-3px)}
+.ft-bottom{
+  border-top:1px solid rgba(255,255,255,.05);padding-top:1.4rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  font-size:.76rem;color:rgba(200,216,234,.4);
+}
+.ft-bottom a{color:rgba(200,216,234,.4);text-decoration:none;transition:color .25s}
+.ft-bottom a:hover{color:var(--teal)}
+
+.wa{
+  position:fixed;bottom:1.75rem;right:1.75rem;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--teal);color:#0b1628;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 28px rgba(0,212,192,.45);
+  z-index:998;text-decoration:none;
+  transition:transform .3s,box-shadow .3s;
+  animation:wap 3s ease-in-out infinite;
+}
+.wa::before{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:2px solid rgba(0,212,192,.35);
+  animation:war 3s ease-in-out infinite;
+}
+.wa:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 10px 36px rgba(0,212,192,.6);animation:none}
+.wa:hover::before{display:none}
+@keyframes wap{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes war{0%{transform:scale(1);opacity:.7}70%{transform:scale(1.35);opacity:0}100%{transform:scale(1.35);opacity:0}}
+.wa-tip{
+  position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);
+  background:#0b1628;color:#fff;font-size:.76rem;font-weight:600;
+  padding:.35rem .75rem;border-radius:8px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  border:1px solid rgba(0,212,192,.2);
+}
+.wa:hover .wa-tip{opacity:1}
+
+.anim{opacity:0}
+@media(max-width:1024px){
+  .mvv-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:880px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav-open .nav-links{
+    display:flex;flex-direction:column;
+    position:fixed;inset:0;background:rgba(7,14,28,.97);
+    backdrop-filter:blur(22px);z-index:999;
+    align-items:center;justify-content:center;gap:2rem;
+  }
+  .nav-open .nav-links a{font-size:1.15rem;color:#fff}
+  .nav-open .ham span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-open .ham span:nth-child(2){opacity:0}
+  .nav-open .ham span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-img-wrap{display:none}
+  .mvv-grid{grid-template-columns:1fr}
+  .form-row2{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+  .ft-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .fiscal-grid,.tech-grid,.why-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:380px){
+  .fiscal-grid,.tech-grid,.why-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<nav id="nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand" aria-label="Inicio">
+      <div class="nav-icon" aria-hidden="true">
+        <img src="logo.png" />
+   
+      </div>
+    
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#fiscal">Fiscal</a></li>
+      <li><a href="#tech">Tecnología</a></li>
+      <li><a href="#why">¿Por qué?</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="#contact" class="nav-cta">Asesoría</a></li>
+    </ul>
+    <button class="ham" id="ham" aria-label="Menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+</header>
+<main>
+<section id="hero" aria-label="Inicio">
+  <div class="hero-orb hero-orb1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb2" aria-hidden="true"></div>
+  <div class="particles"></div>
+  <div class="wrap hero-wrap">
+    <div class="hero-badge">
+      <span class="hero-badge-dot" aria-hidden="true"></span>
+      CONSULTORÍA INDEPENDIENTE
+    </div>
+    <h1 class="hero-title">
+      Soluciones <span class="teal">Fiscales</span> y<br>
+      Tecnológicas<br>Profesionales
+    </h1>
+    <p class="hero-sub">
+      Asesoría especializada para personas físicas, estudiantes,<br>
+      emprendedores y pequeños negocios.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-filled">Solicitar Asesoría →</a>
+      <a href="https://wa.me/527721197976" class="btn btn-ghost" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Contactar por WhatsApp
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hst">
+        <div class="hst-val">+2</div>
+        <div class="hst-lbl">Años de<br>Experiencia</div>
+      </div>
+      <div class="hst">
+        <div class="hst-val">100%</div>
+        <div class="hst-lbl">Trámites<br>SAT</div>
+      </div>
+      <div class="hst">
+        <div class="hst-val">24h</div>
+        <div class="hst-lbl">Tiempo de<br>Respuesta</div>
+      </div>
+      <div class="hst">
+        <div class="hst-val">★ 5.0</div>
+        <div class="hst-lbl">Satisfacción<br>Cliente</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about" class="sec-light sec-pad" aria-label="Sobre mí">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img
+          src="yo.jpeg"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=85'"
+          alt="Consultora profesional trabajando en laptop"
+          loading="lazy"
+        />
+        <div class="about-badge-btn">
+          <span>Ingeniería + SAT</span>
+          <span>Doble formación a tu favor</span>
+        </div>
+      </div>
+      <div class="about-text-col">
+        <div class="pill">
+          <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+          SOBRE MÍ
+        </div>
+        <h2 class="about-h2 anim">
+          Una consultora que<br>
+          entiende los <span class="teal">números</span> y la<br>
+          <span class="teal">tecnología</span>.
+        </h2>
+        <p class="about-p anim">
+          Combino experiencia en orientación y atención fiscal con formación en Ingeniería en Sistemas. Durante mi servicio social en el SAT atendí cientos de contribuyentes, y hoy convierto ese conocimiento en soluciones administrativas y tecnológicas a tu medida.
+        </p>
+        <ul class="about-checks">
+          <li class="anim">
+            <span class="chk-circle" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Experiencia directa en atención fiscal y trámites SAT
+          </li>
+          <li class="anim">
+            <span class="chk-circle" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Servicio social realizado dentro del SAT
+          </li>
+          <li class="anim">
+            <span class="chk-circle" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Ingeniería en Sistemas Computacionales
+          </li>
+          <li class="anim">
+            <span class="chk-circle" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            Soluciones integrales: fiscales + tecnológicas
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mvv" style="background:#f4f8fc;" class="sec-pad" aria-label="Misión visión objetivo">
+  <div class="wrap">
+    <div class="mvv-grid">
+      <div class="mv anim">
+        <div class="mv-num">01 — MISIÓN</div>
+        <div class="mv-ttl"></div>
+        <p>Brindar servicios fiscales y tecnológicos confiables, accesibles y eficientes, ayudando a los clientes a resolver sus necesidades administrativas y tecnológicas mediante atención personalizada y profesional.</p>
+      </div>
+      <div class="mv anim">
+        <div class="mv-num">02 — VISIÓN</div>
+        <div class="mv-ttl"></div>
+        <p>Consolidarme como una profesional de referencia en asesoría fiscal y soluciones tecnológicas, reconocida por la calidad, confianza e innovación en cada servicio ofrecido.</p>
+      </div>
+      <div class="mv anim">
+        <div class="mv-num">03 — OBJETIVO</div>
+        <div class="mv-ttl"></div>
+        <p>Facilitar el acceso a servicios fiscales y tecnológicos mediante soluciones prácticas, eficientes y adaptadas a las necesidades de cada cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="fiscal" class="sec-light sec-pad" style="padding-top:0" aria-label="Servicios fiscales">
+  <div class="wrap">
+    <div class="sec-heading">
+      <div class="pill">
+        <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+        SERVICIOS FISCALES
+      </div>
+      <h2 class="anim">Todo lo que necesitas frente al <span class="teal">SAT</span>, resuelto.</h2>
+      <p class="anim">Trámites, declaraciones y orientación fiscal con seguimiento puntual y comunicación clara.</p>
+    </div>
+    <div class="hero-img-block anim">
+      <img
+        src="https://cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/I2BX4P4JWFEQLGHA2RJQYD34XA.jpeg"
+        alt="Documentos fiscales y gráficas en escritorio"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="fiscal-grid" id="fiscalGrid">
+      <div class="fc"><span class="fc-code">F · 01</span><h3>Constancia de Situación Fiscal</h3><p>Obtención y actualización ante el SAT sin complicaciones.</p></div>
+      <div class="fc"><span class="fc-code">F · 02</span><h3>Cédula de Datos Fiscales</h3><p>Gestión de cédula en el registro fiscal federal.</p></div>
+      <div class="fc"><span class="fc-code">F · 03</span><h3>Opinión de Cumplimiento</h3><p>Verifica tu situación y obtén opinión positiva.</p></div>
+      <div class="fc"><span class="fc-code">F · 04</span><h3>Cambios de Régimen Fiscal</h3><p>Trámite para el régimen más adecuado a tu actividad.</p></div>
+      <div class="fc"><span class="fc-code">F · 09</span><h3>Generación de Citas</h3><p>Agenda tu cita SAT sin perder tiempo.</p></div>
+      <div class="fc"><span class="fc-code">F · 10</span><h3>Orientación Fiscal</h3><p>Guía sobre obligaciones y derechos como contribuyente.</p></div>
+      <div class="fc"><span class="fc-code">F · 11</span><h3>Actualización de Obligaciones</h3><p>Mantén obligaciones al corriente, evita multas.</p></div>
+      <div class="fc"><span class="fc-code">F · 12</span><h3>Cambio de Domicilio Fiscal</h3><p>Actualización en el padrón del SAT sin trámite engorroso.</p></div>
+      <div class="fc"><span class="fc-code">F · 13</span><h3>Asesoría e.firma</h3><p>Obtener, renovar y gestionar tu firma electrónica SAT.</p></div>
+    </div>
+  </div>
+</section>
+<section id="tech" class="sec-dark sec-pad" aria-label="Servicios tecnológicos">
+  <div class="wrap">
+    <div class="sec-heading">
+      <div class="pill">
+        <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+        SERVICIOS TECNOLÓGICOS
+      </div>
+      <h2 class="anim">Tecnología que <span class="teal">impulsa</span> tu día a día.</h2>
+      <p class="anim">Desde tu sitio web hasta optimizar tu equipo, te acompaño con soluciones prácticas y duraderas.</p>
+    </div>
+    <div class="hero-img-block anim">
+      <img
+        src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=1300&q=85"
+        alt="Monitores con código de programación azul"
+        loading="lazy"
+        style="filter:brightness(.8) saturate(1.2)"
+      />
+    </div>
+
+    <div class="tech-grid" id="techGrid">
+      <div class="tc"><span class="tc-code">T · 01</span><h3>Desarrollo de Páginas Web</h3><p>Sitios web profesionales adaptados a tu negocio y presupuesto.</p></div>
+      <div class="tc"><span class="tc-code">T · 02</span><h3>Microsoft Office</h3><p>Instalación y configuración completa de la suite Office.</p></div>
+      <div class="tc"><span class="tc-code">T · 03</span><h3>Configuración de Software</h3><p>Instalación y resolución de problemas de software especializado.</p></div>
+      <div class="tc"><span class="tc-code">T · 04</span><h3>Optimización de Equipos</h3><p>Mejora el rendimiento de tu computadora de manera profesional.</p></div>
+      <div class="tc"><span class="tc-code">T · 05</span><h3>Asesoría Tecnológica</h3><p>Orientación experta para decisiones tecnológicas acertadas.</p></div>
+      <div class="tc"><span class="tc-code">T · 06</span><h3>Proyectos Académicos</h3><p>Apoyo en proyectos académicos de tecnología e informática.</p></div>
+    </div>
+  </div>
+</section>
+<section id="why" class="sec-light sec-pad" aria-label="Por qué elegirme">
+  <div class="wrap">
+    <div class="why-center">
+      <div class="pill" style="justify-content:center">
+        <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+        ¿POR QUÉ ELEGIRME?
+      </div>
+      <h2 class="anim">Seis razones para <span class="teal">trabajar</span><br>conmigo.</h2>
+    </div>
+    <div class="why-grid" id="whyGrid">
+      <div class="wc"><span class="wc-num" aria-hidden="true">01</span><div class="wc-ico" aria-hidden="true">🤝</div><h3>Atención Personalizada</h3><p>Cada cliente es único. Adapto mis servicios a tus necesidades y circunstancias para brindarte la mejor solución.</p></div>
+      <div class="wc"><span class="wc-num" aria-hidden="true">02</span><div class="wc-ico" aria-hidden="true">⭐</div><h3>Profesionalismo</h3><p>Formación en Ingeniería en Sistemas y experiencia práctica directa en el SAT que garantizan resultados de calidad.</p></div>
+      <div class="wc"><span class="wc-num" aria-hidden="true">03</span><div class="wc-ico" aria-hidden="true">📚</div><h3>Conocimientos Actualizados</h3><p>Me mantengo al día con las reformas fiscales para ofrecerte siempre información vigente y precisa.</p></div>
+      <div class="wc"><span class="wc-num" aria-hidden="true">04</span><div class="wc-ico" aria-hidden="true">💻</div><h3>Formación Tecnológica</h3><p>Mi base en sistemas informáticos complementa cada solución fiscal con tecnología moderna y eficiente.</p></div>
+      <div class="wc"><span class="wc-num" aria-hidden="true">05</span><div class="wc-ico" aria-hidden="true">⚡</div><h3>Soluciones Eficientes</h3><p>Optimizo cada proceso para que obtengas resultados rápidos reduciendo tiempos y evitando errores.</p></div>
+      <div class="wc"><span class="wc-num" aria-hidden="true">06</span><div class="wc-ico" aria-hidden="true">💬</div><h3>Comunicación Clara</h3><p>Explico cada proceso en términos simples y te mantengo informado en todo momento sobre tus trámites.</p></div>
+    </div>
+  </div>
+</section>
+<section id="testi" aria-label="Testimonios">
+  <div class="wrap">
+    <div class="testi-dot" aria-hidden="true"></div>
+    <h2 class="testi-title anim">La voz de <span class="teal">quienes</span> ya confiaron.</h2>
+    <div class="testi-body">
+      <div class="tslide on" data-i="0">
+        <p class="tquote">Llegué buscando solo a alguien que llevara mi contabilidad, sin imaginar que también resolvería mi presencia digital. Hoy entiendo cada declaración antes de firmarla, mi régimen fiscal quedó actualizado a lo que realmente hace mi negocio, y ya tengo una página web profesional funcionando. Es la primera vez que siento que alguien está realmente de mi lado frente al SAT.</p>
+        <div class="tauthor">
+          <div class="tavatar" aria-hidden="true">L</div>
+          <div>
+            <div class="tname">Laura Méndez</div>
+            <div class="trole">Pequeño negocio</div>
+          </div>
+        </div>
+      </div>
+      <div class="tslide" data-i="1">
+        <p class="tquote">Necesitaba actualizar mi domicilio fiscal y no sabía cómo hacerlo sin cometer errores en el SAT. Además, tenía dudas sobre mi régimen y mis obligaciones como persona física. Me explicó todo paso a paso, revisó mi situación fiscal y realizó el cambio correctamente sin que yo tuviera que perder tiempo en trámites complicados. Ahora tengo todo en orden y entiendo claramente mis obligaciones fiscales.</p>
+        <div class="tauthor">
+          <div class="tavatar" aria-hidden="true">M</div>
+          <div>
+            <div class="tname">María Álvarez</div>
+            <div class="trole">ersona física — Cambio de domicilio y orientación fiscal</div>
+          </div>
+        </div>
+      </div>
+      <div class="tslide" data-i="2">
+        <p class="tquote">Necesitaba mi e.firma para poder facturar como freelancer y no tenía idea por dónde empezar. Me acompañó desde la cita en el SAT hasta la instalación del certificado en mi computadora, explicándome para qué sirve cada documento. Su experiencia trabajando dentro del SAT se nota en cada respuesta: siempre sabe exactamente qué va a pasar antes de que pase.</p>
+        <div class="tauthor">
+          <div class="tavatar" aria-hidden="true">G</div>
+          <div>
+            <div class="tname">Golia Pérez</div>
+            <div class="trole">Freelancer — e.firma y trámites SAT</div>
+          </div>
+        </div>
+      </div>
+      <div class="tslide" data-i="3">
+        <p class="tquote">Tenía dudas sobre un trámite relacionado con la pensión y no sabía cómo gestionarlo ante el SAT ni qué tipo de cita debía solicitar. Me orientó paso a paso, revisó mi situación fiscal y me ayudó a agendar la cita correcta sin errores. Todo el proceso fue claro y ahora puedo continuar con mi trámite sin complicaciones.</p>
+        <div class="tauthor">
+          <div class="tavatar" aria-hidden="true">R</div>
+          <div>
+            <div class="tname">Roberto Sánchez</div>
+            <div class="trole">Persona física — Pensión, orientación y cita SAT</div>
+          </div>
+        </div>
+      </div>
+      <div class="tslide" data-i="4">
+        <p class="tquote">Mi computadora ya ni siquiera podía abrir Office y la necesitaba para mis proyectos de la universidad. En una sola visita instaló y configuró toda la suite, optimizó el equipo de raíz y me lo dejó funcionando como nuevo. Lo que más valoro es que no solo resolvió el problema: me explicó cómo evitar que volviera a pasar.</p>
+        <div class="tauthor">
+          <div class="tavatar" aria-hidden="true">C</div>
+          <div>
+            <div class="tname">Carlos Ríos</div>
+            <div class="trole">Estudiante — Servicios Tecnológicos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tcontrols" role="group" aria-label="Navegación de testimonios">
+      <button class="tarr" id="tPrev" aria-label="Anterior">‹</button>
+      <div class="tdots" id="tDots" role="tablist"></div>
+      <button class="tarr" id="tNext" aria-label="Siguiente">›</button>
+    </div>
+  </div>
+</section>
+<section id="contact" class="sec-light sec-pad" aria-label="Contacto">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="ct-left">
+        <div class="pill">
+          <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+          CONTACTO
+        </div>
+        <h2 class="anim">Hablemos sobre<br>tu <span class="teal">próximo paso</span>.</h2>
+        <p class="anim">Cuéntame qué necesitas y te responderé en menos de 24 horas con una propuesta a tu medida.</p>
+        <div class="ct-items">
+          <a href="https://wa.me/527721197976" class="ct-item anim" target="_blank" rel="noopener" aria-label="WhatsApp directo">
+            <span class="ct-ico ico-teal" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </span>
+            WhatsApp directo
+          </a>
+          <a href="mailto:gcruzramirez409@gmail.com" class="ct-item anim" aria-label="Correo electrónico">
+            <span class="ct-ico ico-navy" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22 6 12 13 2 6"></polyline></svg>
+            </span>
+            gcruzramirez409@gmail.com
+          </a>
+          <div class="ct-item anim">
+            <span class="ct-ico ico-navy" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </span>
+            Lun-Vie · 9:00 a 18:00
+          </div>
+        </div>
+      </div>
+      <div class="cform anim">
+        <form id="cForm" novalidate>
+          <div class="form-row2">
+            <div class="fg">
+              <label for="fn">Nombre completo</label>
+              <input type="text" id="fn" name="nombre" placeholder="Tu nombre" required autocomplete="name"/>
+            </div>
+            <div class="fg">
+              <label for="em">Correo electrónico</label>
+              <input type="email" id="em" name="email" placeholder="tu@correo.com" required autocomplete="email"/>
+            </div>
+          </div>
+          <div class="form-row2">
+            <div class="fg">
+              <label for="tel">Teléfono</label>
+              <input type="tel" id="tel" name="telefono" placeholder="999 000 0000" autocomplete="tel"/>
+            </div>
+            <div class="fg">
+              <label for="svc">Servicio requerido</label>
+              <select id="svc" name="servicio" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <optgroup label="Servicios Fiscales">
+                  <option>Constancia de Situación Fiscal</option>
+                  <option>Cédula de Datos Fiscales</option>
+                  <option>Opinión de Cumplimiento</option>
+                  <option>Cambio de Régimen Fiscal</option>
+                  <option>Generación de Cita SAT</option>
+                  <option>Orientación Fiscal</option>
+                  <option>Actualización de Obligaciones</option>
+                  <option>Cambio de Domicilio Fiscal</option>
+                  <option>Asesoría e.firma</option>
+                </optgroup>
+                <optgroup label="Servicios Tecnológicos">
+                  <option>Desarrollo de Página Web</option>
+                  <option>Instalación Microsoft Office</option>
+                  <option>Configuración de Software</option>
+                  <option>Optimización de Equipo</option>
+                  <option>Asesoría Tecnológica</option>
+                  <option>Proyecto Académico</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="msg">Mensaje</label>
+            <textarea id="msg" name="mensaje" placeholder="Cuéntame brevemente qué necesitas..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark btn-submit">Enviar mensaje →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="#hero" class="nav-brand" aria-label="Inicio">
+          <div class="nav-icon" aria-hidden="true">
+            <img src="logo.png" alt="" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <span class="nav-icon-fallback"></span>
+          </div>
+          <span class="nav-name"></span>
+        </a>
+        <p>Servicios fiscales y tecnológicos con atención personalizada, claridad y resultados.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:gcruzramirez409@gmail.com">gcruzramirez409@gmail.com</a></li>
+          <li><a href="https://wa.me/527721197976?" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#contact">Formulario de contacto</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Síguenos</h4>
+        <div class="ft-soc">
+          <a href="https://www.instagram.com/whozz_abby.12?igsh=MXI5MnZybzFldTBucg%3D%3D&utm_source=qr" class="soc" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1EwaMq9CxS/?mibextid=wwXIfr" class="soc" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/527721197976" class="soc" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 GCR. Todos los derechos reservados.</span>
+      <a href="#" aria-label="Aviso de privacidad">Aviso de privacidad</a>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/527721197976" class="wa" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  <span class="wa-tip">¡Escríbeme ahora!</span>
+</a>
+
+<script>
+(function(){
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50),{passive:true});
+})();
+(function(){
+  const hdr=document.querySelector('header');
+  const btn=document.getElementById('ham');
+  btn.addEventListener('click',()=>{
+    const o=hdr.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded',String(o));
+    document.body.style.overflow=o?'hidden':'';
+  });
+  document.getElementById('navLinks').addEventListener('click',e=>{
+    if(e.target.tagName==='A'){
+      hdr.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    }
+  });
+})();
+(function(){
+  const slides=[...document.querySelectorAll('.tslide')];
+  const dotsEl=document.getElementById('tDots');
+  let cur=0, tot=slides.length, timer;
+
+  slides.forEach((_,i)=>{
+    const d=document.createElement('button');
+    d.className='td'+(i===0?' on':'');
+    d.setAttribute('role','tab');
+    d.setAttribute('aria-label','Testimonio '+(i+1));
+    d.setAttribute('aria-selected',i===0?'true':'false');
+    d.addEventListener('click',()=>go(i));
+    dotsEl.appendChild(d);
+  });
+
+  function go(n){
+    slides[cur].classList.remove('on');
+    dotsEl.children[cur].classList.remove('on');
+    dotsEl.children[cur].setAttribute('aria-selected','false');
+    cur=(n+tot)%tot;
+    slides[cur].classList.add('on');
+    dotsEl.children[cur].classList.add('on');
+    dotsEl.children[cur].setAttribute('aria-selected','true');
+    reset();
+  }
+  function reset(){clearInterval(timer);timer=setInterval(()=>go(cur+1),5000)}
+
+  document.getElementById('tPrev').addEventListener('click',()=>go(cur-1));
+  document.getElementById('tNext').addEventListener('click',()=>go(cur+1));
+  document.getElementById('tDots').addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight')go(cur+1);
+    if(e.key==='ArrowLeft')go(cur-1);
+  });
+  reset();
+})();
+document.getElementById('cForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const nombre=this.querySelector('#fn').value;
+  const email=this.querySelector('#em').value;
+  const tel=this.querySelector('#tel').value;
+  const svc=this.querySelector('#svc').value;
+  const msg=this.querySelector('#msg').value;
+  const b=this.querySelector('button[type=submit]');
+  const orig=b.textContent;
+  b.textContent='✅ ¡Enviado!';
+  b.style.background='linear-gradient(135deg,#25D366,#128C7E)';
+  b.disabled=true;
+  const waMsg=encodeURIComponent(`Hola, me llamo ${nombre}.\nCorreo: ${email}\nTeléfono: ${tel||'No indicado'}\nServicio: ${svc||'General'}\nMensaje: ${msg}`);
+  setTimeout(()=>{
+    window.open(`https://wa.me/527721197976?text=${waMsg}`,'_blank');
+    b.textContent=orig;b.style.background='';b.disabled=false;this.reset();
+  },1200);
+});
+(function(){
+  if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+  const ht=gsap.timeline({delay:.1});
+  ht
+    .from('.hero-badge',  {opacity:0,y:20,duration:.55,ease:'power3.out'})
+    .from('.hero-title',  {opacity:0,y:50,duration:.85,ease:'power3.out'},'-=.1')
+    .from('.hero-sub',    {opacity:0,y:30,duration:.7, ease:'power3.out'},'-=.35')
+    .from('.hero-btns',   {opacity:0,y:20,duration:.6, ease:'power3.out'},'-=.3')
+    .from('.hst',         {opacity:0,y:18,stagger:.1,  duration:.5, ease:'power2.out'},'-=.2');
+
+  gsap.to('.hero-orb1',{yPercent:35,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.hero-orb2',{yPercent:20,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1.5}});
+  gsap.utils.toArray('.hero-img-block img').forEach(img=>{
+    gsap.fromTo(img,
+      {scale:.85,y:30},
+      {scale:1,y:0,ease:'none',
+       scrollTrigger:{trigger:img.parentElement,start:'top 90%',end:'center 40%',scrub:1.2}}
+    );
+  });
+  gsap.fromTo('.about-img-wrap img',
+    {scale:.87,y:40},
+    {scale:1,y:0,ease:'none',
+     scrollTrigger:{trigger:'#about',start:'top 85%',end:'bottom 20%',scrub:1.5}}
+  );
+  gsap.utils.toArray('.anim').forEach(el=>{
+    gsap.fromTo(el,
+      {opacity:0,y:42},
+      {opacity:1,y:0,duration:.85,ease:'power3.out',
+       scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none reverse'}}
+    );
+  });
+  gsap.fromTo('#fiscalGrid .fc',
+    {opacity:0,y:50,scale:.94},
+    {opacity:1,y:0,scale:1,duration:.6,ease:'power3.out',
+     stagger:{each:.06},
+     scrollTrigger:{trigger:'#fiscalGrid',start:'top 84%',toggleActions:'play none none reverse'}}
+  );
+  gsap.fromTo('#techGrid .tc',
+    {opacity:0,y:50,scale:.94},
+    {opacity:1,y:0,scale:1,duration:.65,ease:'power3.out',
+     stagger:{each:.09},
+     scrollTrigger:{trigger:'#techGrid',start:'top 84%',toggleActions:'play none none reverse'}}
+  );
+  gsap.fromTo('#whyGrid .wc',
+    {opacity:0,y:50,rotateX:6},
+    {opacity:1,y:0,rotateX:0,duration:.7,ease:'power3.out',
+     stagger:{each:.1},
+     scrollTrigger:{trigger:'#whyGrid',start:'top 84%',toggleActions:'play none none reverse'}}
+  );
+  gsap.fromTo('.mv',
+    {opacity:0,y:40,scale:.96},
+    {opacity:1,y:0,scale:1,duration:.7,ease:'back.out(1.4)',
+     stagger:.14,
+     scrollTrigger:{trigger:'.mvv-grid',start:'top 84%'}}
+  );
+  gsap.fromTo('.about-checks li',
+    {opacity:0,x:-28},
+    {opacity:1,x:0,duration:.55,ease:'power2.out',
+     stagger:.12,
+     scrollTrigger:{trigger:'.about-checks',start:'top 86%'}}
+  );
+  gsap.fromTo('.ct-items .ct-item',
+    {opacity:0,x:-20},
+    {opacity:1,x:0,duration:.5,ease:'power2.out',
+     stagger:.1,
+     scrollTrigger:{trigger:'.ct-items',start:'top 88%'}}
+  );
+  gsap.fromTo('.testi-title',
+    {opacity:0,y:30},
+    {opacity:1,y:0,duration:.8,ease:'power3.out',
+     scrollTrigger:{trigger:'#testi',start:'top 85%'}}
+  );
+
+})();
+</script>
+</body>
+</html>
